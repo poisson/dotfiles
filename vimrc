@@ -6,6 +6,8 @@ call vundle#rc()
 
 " Bundles stored here for now
 Bundle 'gmarik/vundle'
+Bundle 'slimv.vim'
 
 filetype plugin indent on
+
 
