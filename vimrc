@@ -9,8 +9,6 @@ Bundle 'gmarik/vundle'
 Bundle 'Smart-Tabs'
 " Plugins that don't work under Cygwin
 if !has('win32unix')
-	" Slimv doesn't work under Cygwin, disabling it until I figure out why
-	Bundle 'slimv.vim'
 endif
 
 " Enable filetype detection, filetype-specific plugins, filetype-specific
@@ -49,10 +47,10 @@ inoremap <esc> <nop>
 vnoremap <esc> <nop>
 
 " Temporary <nop> mapping of the arrow keys, we'll see if I get used to it
-noremap <up> <nop>
-noremap <down> <nop>
-noremap <left> <nop>
-noremap <right> <nop>
+nnoremap <up> <nop>
+nnoremap <down> <nop>
+nnoremap <left> <nop>
+nnoremap <right> <nop>
 
 " Set tabstop to 4
 set ts=4
@@ -66,3 +64,6 @@ augroup vimrc
 	" this event (because otherwise writing it over and over causes lag to build)
 	au BufWritePost $MYVIMRC :source $MYVIMRC
 augroup END
+
+set nocompatible
+
