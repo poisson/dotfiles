@@ -38,9 +38,11 @@ fi
 alias ls="ls -hF $colors"
 export LSCOLORS='ExGxbxexCxfxFxCBCbDxdx'
 alias ssh="ssh -A"
-AGENT_SOCK="/tmp/sshagent"
-eval `ssh-agent -a $AGENT_SOCK`
-ssh-add
+if [[ -z "$SSH_AUTH_SOCK" ]]; then
+	AGENT_SOCK="/tmp/sshagent"
+	eval `ssh-agent -a $AGENT_SOCK`
+	ssh-add
+fi
 
 preexec() { ODIR="$(pwd)" }          
 precmd() { [[ "$(pwd)" != $ODIR ]] && ls }
