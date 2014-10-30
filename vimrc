@@ -7,6 +7,7 @@ call vundle#rc()
 " Bundles stored here for now
 Bundle 'gmarik/vundle'
 Bundle 'Smart-Tabs'
+Bundle 'chase/vim-ansible-yaml'
 " Plugins that don't work under Cygwin
 if !has('win32unix')
 endif
