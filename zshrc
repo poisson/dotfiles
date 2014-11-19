@@ -39,9 +39,11 @@ alias ls="ls -hF $colors"
 export LSCOLORS='ExGxbxexCxfxFxCBCbDxdx'
 alias ssh="ssh -A"
 if [[ -z "$SSH_AUTH_SOCK" ]]; then
-	AGENT_SOCK="/tmp/sshagent"
+	AGENT_SOCK="~/.sshagent"
 	eval `ssh-agent -a $AGENT_SOCK`
 	ssh-add
+else
+	ln -sf $SSH_AUTH_SOCK ~/.sshagent
 fi
 
 preexec() { ODIR="$(pwd)" }          
