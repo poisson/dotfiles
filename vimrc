@@ -9,6 +9,8 @@ Bundle 'gmarik/vundle'
 Bundle 'Smart-Tabs'
 Bundle 'chase/vim-ansible-yaml'
 Bundle 'cmake.vim-syntax'
+Bundle 'rodjek/vim-puppet'
+Bundle 'godlygeek/tabular'
 " Plugins that don't work under Cygwin
 if !has('win32unix')
 endif
