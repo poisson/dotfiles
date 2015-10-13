@@ -11,6 +11,8 @@ Bundle 'chase/vim-ansible-yaml'
 Bundle 'cmake.vim-syntax'
 Bundle 'rodjek/vim-puppet'
 Bundle 'godlygeek/tabular'
+Bundle 'flazz/vim-colorschemes'
+Bundle 'DrSpatula/vim-buddy'
 " Plugins that don't work under Cygwin
 if !has('win32unix')
 endif
@@ -68,6 +70,9 @@ augroup vimrc
 	" this event (because otherwise writing it over and over causes lag to build)
 	au BufWritePost $MYVIMRC :source $MYVIMRC
 augroup END
+
+" I like this color scheme for now
+colorscheme buddy
 
 set nocompatible
 
