@@ -38,13 +38,10 @@ fi
 alias ls="ls -hF $colors"
 export LSCOLORS='ExGxbxexCxfxFxCBCbDxdx'
 alias ssh="ssh -A"
-if [[ -z "$SSH_AUTH_SOCK" ]]; then
-	AGENT_SOCK="~/.sshagent"
-	eval `ssh-agent -a $AGENT_SOCK`
-	ssh-add
-else
-	ln -sf $SSH_AUTH_SOCK ~/.sshagent
-fi
+
+# use local copy of keychain due to cygwin bugs
+BINDIR="$(dirname $(readlink -f $(print -P %N)))/bin"
+eval `$BINDIR/keychain --eval --agents ssh id_ed25519`
 
 preexec() { ODIR="$(pwd)" }          
 precmd() { [[ "$(pwd)" != $ODIR ]] && ls }
