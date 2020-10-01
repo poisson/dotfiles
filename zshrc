@@ -36,6 +36,7 @@ else
 	colors="--color=auto"
 fi
 alias ls="ls -hF $colors"
+alias tmux="tmux -2"
 export LSCOLORS='ExGxbxexCxfxFxCBCbDxdx'
 alias ssh="ssh -A"
 
@@ -45,5 +46,7 @@ eval `$BINDIR/keychain --eval --agents ssh id_ed25519`
 
 preexec() { ODIR="$(pwd)" }          
 precmd() { [[ "$(pwd)" != $ODIR ]] && ls }
+
+export PATH=$PATH:$HOME/.local/bin
 
 echo ".zshrc completed successfully."
