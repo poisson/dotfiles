@@ -42,7 +42,9 @@ alias ssh="ssh -A"
 
 # use local copy of keychain due to cygwin bugs
 BINDIR="$(dirname $(readlink -f $(print -P %N)))/bin"
-eval `$BINDIR/keychain --eval --agents ssh id_ed25519`
+if [[ -z "$SSH_AUTH_SOCK" ]]; then
+	eval `$BINDIR/keychain --eval --agents ssh id_ed25519`
+fi
 
 preexec() { ODIR="$(pwd)" }          
 precmd() { [[ "$(pwd)" != $ODIR ]] && ls }
